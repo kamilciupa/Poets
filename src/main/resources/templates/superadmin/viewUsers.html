@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title >View Post</title>
+</head>
+
+<body>
+
+<header th:replace="layout :: site-header" />
+
+<main id="users">
+    <div>
+        <h2>Users</h2>
+        <a href="#" th:each="p : ${users}" th:href="@{/superadmin/viewUser/{id}/delete/(id=${p.id})}"><div th:text="${p.email}" ></div></a>
+        <!--<a href= "#" th:each="p : ${users}" th:text="${p.email}" th:href="@{/superadmin/viewUser/{id}/delete/(id=${p.id})}">Work Begins on HTML5.1</a>-->
+    </div>
+</main>
+
+<footer th:replace="layout :: site-footer" />
+
+</body>
+
+</html>

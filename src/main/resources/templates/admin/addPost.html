@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}" />
+    <link rel="icon" href="../public/img/favicon.ico" th:href="@{/img/favicon.ico}" />
+    <script src="../public/js/jquery-3.1.0.min.js" th:src="@{/js/jquery-3.1.0.min.js}"></script>
+    <script src="../public/js/blog-scripts.js" th:src="@{/js/blog-scripts.js}"></script>
+    <!--<meta th:include="this :: head" th:remove="tag"/>-->
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" th:href="@{/}"><img
+            src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}" /></a>
+    <a href="home.html" th:href="@{/admin/home}">Home</a>
+    <a href="admin/viewPosts.html" th:href="@{/admin/viewPosts}">Posts</a>
+    <a href="admin/addPost.html" th:href="@{/admin/addPost}">Create Post</a>
+    <a href="#" >TUTAJ MOŻE CO KIEDY BEDZIE</a>
+    <div id="logged-in-info">
+        <span  th:utext="${userName}"></span>
+        <!--<form method="post" th:action="@{/users/logout}">-->
+            <!--<input type="submit" value="Logout"/>-->
+        <!--</form>-->
+    </div>
+</header>
+
+<h1>Dodaj Post</h1>
+
+<form method="post" th:object="${post}">
+    <div><label for="title">Title:</label></div>
+    <input id="title" type="text" name="title" th:value="*{title}"  />
+    <!--<span class="formError" th:if="${#fields.hasErrors('title')}"-->
+    <!--th:errors="*{title}">Invalid username</span>-->
+
+    <div><label for="body">Opis:</label></div>
+    <textarea id="body" type="text" name="body"  th:value="*{body}"></textarea>
+    <!--<span class="formError" th:if="${#fields.hasErrors('body')}"-->
+    <!--th:errors="*{body}">Invalid username</span>-->
+
+
+    <div><input type="submit" value="Dodej"/></div>
+
+
+</form>
+
+<span th:utext="${successMessage}"></span>
+
+<footer>
+    &copy; Spring MVC Blog System, 2016
+</footer>
+
+</body>
+
+</html>

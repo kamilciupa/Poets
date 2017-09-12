@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Top Lista</title>
+</head>
+
+<body>
+
+<header th:replace="layout :: site-header" />
+
+<h1>Top Lista</h1>
+
+<main id="posts">
+    <div>
+        <h2>Recent Posts</h2>
+        <a href= "#" th:each="p : ${posts}" th:href="@{/admin/viewPost/{id}/(id=${p.id})}" ><div th:text="${p.title}"></div></a>
+    </div>
+</main>
+
+
+
+<footer th:replace="layout :: site-footer" />
+
+</body>
+
+</html>

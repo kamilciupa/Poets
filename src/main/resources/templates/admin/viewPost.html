@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title th:text="${post.title}">View Post</title>
+</head>
+
+<body>
+
+<header th:replace="layout :: site-header" />
+
+<main id="posts">
+    <article>
+        <h2 class="title" th:utext="${post.title}">Post Title</h2>
+        <i>Srednia ocena: </i>
+        <span class="content" th:utext="${post.srednia}">5</span>
+        <i> z  </i>
+        <span class="content" th:utext="${post.votesAmount}"></span>
+        <i> głosów</i>
+        <div class="date">
+            <i>Posted on</i>
+            <span th:utext="${post.date}">22-May-2016</span>
+            <i> by </i>
+            <span th:utext="${post.autor}">Autor</span>
+        </div>
+        <p class="content" th:utext="${post.body}">Post content</p>
+        <div class="content">
+            <i>Oceń wiersz</i>
+            <a href="#" th:href="@{/admin/viewPost/{id}/vote/1/(id=${post.id})}">1</a>
+            <a href="#" th:href="@{/admin/viewPost/{id}/vote/2/(id=${post.id})}">2</a>
+            <a href="#" th:href="@{/admin/viewPost/{id}/vote/3/(id=${post.id})}">3</a>
+            <a href="#" th:href="@{/admin/viewPost/{id}/vote/4/(id=${post.id})}">4</a>
+            <a href="#" th:href="@{/admin/viewPost/{id}/vote/5/(id=${post.id})}">5</a>
+        </div>
+    </article>
+</main>
+
+<footer th:replace="layout :: site-footer" />
+
+</body>
+
+</html>
